@@ -38,11 +38,17 @@ class ProductController extends Controller
 
         return redirect()->route('addProduct')->with('success', 'Product added successfully!');
     }
-    // Fetch and display all products
-    public function index()
+
+    // Show Products in Laravel Blade (for /products)
+    public function showProducts()
     {
-        $products = Product::all(); // Fetch all products from the database
-        return view('pages.products', compact('products')); // Pass products to the view
+        $products = Product::all();
+        return view('pages.products', compact('products'));
+    }
+
+    // Fetch Products as JSON for React (for /api/products)
+    public function getProducts()
+    {
+        return response()->json(Product::all());
     }
 }
-

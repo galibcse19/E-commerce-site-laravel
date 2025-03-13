@@ -1,34 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [products, setProducts] = useState([]);
 
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/products")
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
+  }, []);
+ console.log(products);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+     <div>
+       <div className="container mx-auto p-5">
+      <h1 className="text-3xl font-bold text-center mb-6">Product List</h1>
+      <table className="w-full bg-white shadow-md rounded-lg">
+        <thead>
+          <tr className="bg-gray-200">
+            <th className="py-2 px-4">ID</th>
+            <th className="py-2 px-4">Title</th>
+            <th className="py-2 px-4">Image</th>
+            <th className="py-2 px-4">Price</th>
+            <th className="py-2 px-4">Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => (
+            <tr className="border-b text-center" key={product.id}>
+              <td className="py-2 px-4">{product.id}</td>
+              <td className="py-2 px-4">{product.title}</td>
+              <td className="py-2 px-4">
+                {product.image ? (
+                  <img
+                    src={`http://127.0.0.1:8000/storage/${product.image}`}
+                    alt="Product"
+                    className="w-12 mx-auto"
+                  />
+                ) : (
+                  "No Image"
+                )}
+              </td>
+              <td className="py-2 px-4">${product.price}</td>
+              <td className="py-2 px-4">{product.category}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+     </div>
   )
 }
 
