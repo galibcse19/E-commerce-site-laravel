@@ -29,8 +29,20 @@
                     </a>
                 </li>
                 <li>
+                    <a href="{{ url('/addProductAll') }}" 
+                       class="block py-2 px-3 rounded {{ Request::is('addProductAll') ? 'bg-blue-700 text-white' : 'hover:bg-blue-600' }}">
+                        Add Product All
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('products.list') }}" 
                        class="block py-2 px-3 rounded {{ Request::is('products') ? 'bg-blue-700 text-white' : 'hover:bg-blue-600' }}">
+                        Product List
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('productsAll.list') }}" 
+                       class="block py-2 px-3 rounded {{ Request::is('productsAll') ? 'bg-blue-700 text-white' : 'hover:bg-blue-600' }}">
                         Product List
                     </a>
                 </li>
