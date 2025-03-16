@@ -29,6 +29,11 @@ Route::post('/addProductAll', [ProductController::class, 'storeAll'])->name('all
 Route::get('/productsAll', [ProductController::class, 'showProductsAll'])->name('productsAll.list');
 Route::get('/api/productsAll', [ProductController::class, 'getProductsAll']);
 
+//add slider image(offer)
+Route::get('/addOfferImage', [ProductController::class, 'createOffer'])->name('addOfferImage');
+Route::post('/addOfferImage', [ProductController::class, 'storeOffer'])->name('offerImage.store');
+Route::get('/api/offerImage', [ProductController::class, 'getOfferImage']);
+
 // Dynamic Page Handling
 Route::get('/{page}', function ($page) {
     if (view()->exists("pages.$page")) {

@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
+    const links =<>
+        <Link to={'/'}><li><a>Home</a></li> </Link>  
+        <Link to={'/logIn'}><li><a>Login</a></li> </Link>  
+        <Link to={'/signUp'}><li><a>SignUp</a></li></Link>  
+        <Link to={'/helpSupport'}><li><a>Help/Support</a></li></Link>  
+       
+        
+    </>
     return (
         <div>
-            <div className="navbar bg-orange-600 px-20">
+            <div className="navbar bg-orange-600 lg:px-20">
                 <div className="navbar-start">
                     <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,20 +31,50 @@ const NavBar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>   
-                        <li><a>Item 3</a></li>
+                        className="menu menu-sm dropdown-content bg-orange-600 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        {links}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-xl">E-SHOP</a>
                 </div>
-                <div className="navbar-center ">
-                <a className="btn">Button</a>
-                </div>
+                 {/* Navbar Center */}
+        <div className="navbar-center lg:flex md:flex hidden gap-4">
+          {/* Dropdown */}
+          <div className="dropdown">
+            <label tabIndex={0} className="btn bg-white text-black hover:bg-black hover:text-white">
+              Categories
+            </label>
+            <ul tabIndex={0}  className="dropdown-content menu p-2 shadow bg-orange-600 rounded-box w-52" >
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Clothing & Fashion</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Home & Kitchen</a></li>
+            <li><a href="#">Beauty & Personal Care</a></li> 
+            <li><a href="#">Sports & Fitness</a></li>
+            <li><a href="#">Toys & Games</a></li>
+            <li><a href="#">Books & Stationery</a></li> 
+            <li><a href="#">Jewelry & Watches</a></li>
+            <li><a href="#">Baby Products</a></li> 
+            <li><a href="#">Mobile & Gadgets</a></li> 
+            <li><a href="#">Music & Instruments</a></li>
+            </ul>
+          </div>
+
+          {/* Search Field */}
+          <input
+            type="text"
+            placeholder="Search products..."
+            className="input input-bordered lg:w-96 md:w-72 w-24"
+          />
+
+          {/* Search Button */}
+          <button className="btn bg-white text-black hover:bg-black hover:text-white">
+            Search
+          </button>
+        </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li> 
-                    <li><a>Item 3</a></li>
+                     {links}
                     </ul>
                 </div>
             </div>

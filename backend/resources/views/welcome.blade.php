@@ -46,6 +46,12 @@
                         Product List
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('/addOfferImage') }}" 
+                       class="block py-2 px-3 rounded {{ Request::is('addOfferImage') ? 'bg-blue-700 text-white' : 'hover:bg-blue-600' }}">
+                        Add Offer
+                    </a>
+                </li>
             </ul>
         </div>
 

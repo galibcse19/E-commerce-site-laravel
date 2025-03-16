@@ -7,7 +7,9 @@ const Main = () => {
     return (
         <div className=''>
             <NavBar></NavBar>
-            <Outlet></Outlet>
+            <div className='bg-gray-200 text-black'>
+                <Outlet></Outlet>
+            </div>
             <Footer></Footer>
         </div>
     );
