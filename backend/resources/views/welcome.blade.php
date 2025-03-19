@@ -52,6 +52,12 @@
                         Add Offer
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('/addCategory') }}" 
+                       class="block py-2 px-3 rounded {{ Request::is('addCategory') ? 'bg-blue-700 text-white' : 'hover:bg-blue-600' }}">
+                        Add Category
+                    </a>
+                </li>
             </ul>
         </div>
 

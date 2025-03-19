@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 
 // Redirect root to home
 Route::get('/', function () {
@@ -33,6 +34,11 @@ Route::get('/api/productsAll', [ProductController::class, 'getProductsAll']);
 Route::get('/addOfferImage', [ProductController::class, 'createOffer'])->name('addOfferImage');
 Route::post('/addOfferImage', [ProductController::class, 'storeOffer'])->name('offerImage.store');
 Route::get('/api/offerImage', [ProductController::class, 'getOfferImage']);
+
+//add category
+Route::get('/addCategory', [CategoryController::class, 'create'])->name('addCategory');
+Route::post('/addCategory', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/api/category', [CategoryController::class, 'getCategory']);
 
 // Dynamic Page Handling
 Route::get('/{page}', function ($page) {

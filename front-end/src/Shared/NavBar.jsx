@@ -45,9 +45,9 @@ const NavBar = () => {
               Categories
             </label>
             <ul tabIndex={0}  className="dropdown-content menu p-2 shadow bg-orange-600 rounded-box w-52" >
-            <li><a href="#">Electronics</a></li>
+            <Link ><li><a href="#">electronics</a></li></Link>
             <li><a href="#">Clothing & Fashion</a></li>
-            <li><a href="#">Accessories</a></li>
+            <Link ><li><a href="#">Accessories</a></li></Link>
             <li><a href="#">Home & Kitchen</a></li>
             <li><a href="#">Beauty & Personal Care</a></li> 
             <li><a href="#">Sports & Fitness</a></li>
