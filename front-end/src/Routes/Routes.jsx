@@ -8,6 +8,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import HelpSupport from "../Pages/HelpSupport/HelpSupport";
 import ProductByCategory from "../Pages/ProductByCategory/ProductByCategory";
+import ProductDetails from "../Pages/ProductDetails/ProductDetails";
  
 
   export const router = createBrowserRouter([
@@ -35,6 +36,10 @@ import ProductByCategory from "../Pages/ProductByCategory/ProductByCategory";
         {
           path:'/productByCategory',
           element:<ProductByCategory></ProductByCategory>
+        },
+        {
+          path:'/productDetails',
+          element:<ProductDetails></ProductDetails>
         }
       ]
     },

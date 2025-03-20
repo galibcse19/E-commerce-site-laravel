@@ -31,7 +31,30 @@
         </div>
 
         <!-- Category -->
-        <div>
+        <div class="mb-4">
+            <label for="category" class="block text-gray-700 font-bold mb-2">Category:</label>
+            
+            <select id="category" name="category" class="w-full p-2 border rounded">
+                <option value="" disabled selected>Select a category</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing & Fashion">Clothing and Fashion</option>
+                <option value="Accessories">Accessories</option>
+                <option value="Home & Kitchen">Home and Kitchen</option>
+                <option value="Beauty & Personal Care">Beauty and Personal Care</option>
+                <option value="Sports & Fitness">Sports and Fitness</option>
+                <option value="Toys & Games">Toys and Games</option>
+                <option value="Books & Stationery">Books and Stationery</option>
+                <option value="Jewelry & Watches">Jewelry and Watches</option>
+                <option value="Baby Products">Baby Products</option>
+                <option value="Mobile & Gadgets">Mobile and Gadgets</option>
+                <option value="Music & Instruments">Music and Instruments</option>
+            </select>
+
+            @error('category')
+                <p class="text-red-500">{{ $message }}</p>
+            @enderror
+        </div>
+        <!-- <div>
             <label class="block font-medium">Category</label>
             <select name="category" class="w-full px-4 py-2 border rounded-md" required>
                 <option value="">Select Category</option>
@@ -47,7 +70,7 @@
                 <option value="Mobile & Gadgets">Mobile & Gadgets</option>
                 <option value="Music & Instruments">Music & Instruments</option>
             </select>
-        </div>
+        </div> -->
         
         <!-- Brand -->
         <div>

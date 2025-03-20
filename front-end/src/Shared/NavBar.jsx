@@ -1,15 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavBar = () => {
+    const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/category')
+            .then(res => res.json())
+            .then(data => setCategories(data));
+    }, []);
+
     const links =<>
         <Link to={'/'}><li><a>Home</a></li> </Link>  
         <Link to={'/logIn'}><li><a>Login</a></li> </Link>  
         <Link to={'/signUp'}><li><a>SignUp</a></li></Link>  
         <Link to={'/helpSupport'}><li><a>Help/Support</a></li></Link>  
-       
-        
     </>
+    const handleGoProductByCategory =(category)=>{
+      // console.log(category);
+      navigate('/productByCategory', { state: { category } });
+    }
     return (
         <div>
             <div className="navbar bg-orange-600 lg:px-20">
@@ -45,18 +56,12 @@ const NavBar = () => {
               Categories
             </label>
             <ul tabIndex={0}  className="dropdown-content menu p-2 shadow bg-orange-600 rounded-box w-52" >
-            <Link ><li><a href="#">electronics</a></li></Link>
-            <li><a href="#">Clothing & Fashion</a></li>
-            <Link ><li><a href="#">Accessories</a></li></Link>
-            <li><a href="#">Home & Kitchen</a></li>
-            <li><a href="#">Beauty & Personal Care</a></li> 
-            <li><a href="#">Sports & Fitness</a></li>
-            <li><a href="#">Toys & Games</a></li>
-            <li><a href="#">Books & Stationery</a></li> 
-            <li><a href="#">Jewelry & Watches</a></li>
-            <li><a href="#">Baby Products</a></li> 
-            <li><a href="#">Mobile & Gadgets</a></li> 
-            <li><a href="#">Music & Instruments</a></li>
+            {
+              categories.map((category)=>(
+                <li key={category.id}  onClick={()=>handleGoProductByCategory(category)}><a href="">{category.category}</a></li> 
+              ))
+            }
+             
             </ul>
           </div>
 
@@ -83,3 +88,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+ 

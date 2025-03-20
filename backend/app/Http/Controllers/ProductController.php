@@ -70,9 +70,9 @@ class ProductController extends Controller
             'color' => 'nullable|string',
             'availability' => 'required',
             'description' => 'nullable|string',
-            'images1' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'images2' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'images3' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'images1' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
+            'images2' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
+            'images3' => 'nullable|image|mimes:jpeg,png,jpg,webp,gif|max:2048',
         ]);
 
         // Handling Image Uploads
