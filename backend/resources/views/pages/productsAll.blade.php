@@ -34,12 +34,12 @@
                         @if($product->image1)
                             <img src="{{ asset('storage/' . $product->image1) }}" width="50">
                         @endif
-                        @if($product->image2)
+                        <!-- @if($product->image2)
                             <img src="{{ asset('storage/' . $product->image2) }}" width="50">
                         @endif
                         @if($product->image3)
                             <img src="{{ asset('storage/' . $product->image3) }}" width="50">
-                        @endif
+                        @endif -->
                     </td>
                 </tr>
             @endforeach
